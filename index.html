@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="content/css/bootstrap.min.css">
+    <link rel="stylesheet" href="content/css/bootstrap-theme.min.css">
+
+    <script src="vendor/jquery-2.1.4.min.js"></script>
+    <script src="vendor/bootstrap.min.js"></script>
+    <script src="vendor/angular.min.js"></script>
+    <script src="vendor/angular-ui-router.js"></script>
+    <script src="app/app.js"></script>
+
+</head>
+<body style="background-color:orange">
+<div ng-app="amazon">
+    <div class="container" ng-controller="mainController">
+        <nav role="navigation" class="navbar navbar-inverse">
+            
+            <div class="navbar-header">
+                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Amazon</a>
+            </div>
+           
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+
+                    <li ng-repeat="menu in menuItems"
+                        ng-click="loadPage(menu)">
+                        <a href="#">{{menu.name}}</a>
+                    </li>
+                    <li class="dropdown">
+                       <select ng-options="item.category for item in toys"
+                               ng-model="selectedToy" ></select>
+                    </li>
+
+                </ul>
+                <form role="search" class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" placeholder="Search"
+                               class="form-control"
+                               ng-model="search">
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div ui-view></div>
+       <!-- <div ng-include="template"></div>-->
+    </div>
+
+    <h1><div my-directive></div></h1>
+
+
+</div>
+</div>
+<script src="app/directives/myDirective.js"></script>
+<script src="app/services/entertainmentService.js"></script>
+<script src="app/services/inventoryService.js"></script>
+<script src="app/services/gameService.js"></script>
+<script src="app/services/clothingService.js"></script>
+<script src="app/services/houseHoldService.js"></script>
+<script src="app/controllers/mainController.js"></script>
+<script src="app/controllers/houseHoldCtrl.js"></script>
+<script src="app/controllers/electronicsCtrl.js"></script>
+<script src="app/controllers/apparelCtrl.js"></script>
+<script src="app/controllers/sportsCtrl.js"></script>
+<script src="app/controllers/toysCtrl.js"></script>
+</body>
+</html>

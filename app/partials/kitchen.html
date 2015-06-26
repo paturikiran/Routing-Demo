@@ -1,0 +1,12 @@
+<div ng-controller="houseHoldCtrl">
+    <div class="row">
+        <div class="col-sm-6 col-md-3" ng-repeat="item in products.product|filter:search">
+            <a href="#" class="thumbnail">
+                <img src="{{item.imageUrl}}"
+                     alt="Generic placeholder thumbnail">
+            </a>
+            <label class="label-info">{{item.name}} {{item.price}}</label>
+        </div>
+    </div>
+</div>
+</body>
